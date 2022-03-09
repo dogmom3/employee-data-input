@@ -1,0 +1,56 @@
+body {
+    background-image: repeating-linear-gradient(15deg,lightcyan,lime 70px,aqua 140px);
+    background-attachment: fixed;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+header {
+    border-style:ridge;
+    border-width: 10px;
+    border-radius: 20px;
+    border-color:lightcyan;
+    text-align: center;
+    background-color: navy;
+    
+}
+
+h1 {
+    color: aqua;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#employee-data {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#data {
+    list-style: none;
+    background-color:rgba(0,255,255,.50);
+    border-style:ridge;
+    border-color: lightcyan;
+    border-width: 7px;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+#name {
+    text-align: center;
+    background-color:navy;
+    border-radius: 10px;
+    color: lightcyan;
+}
+
+#list {
+font-size: 15px;
+font-weight: bold;
+color: navy;
+}
