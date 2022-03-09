@@ -3,41 +3,9 @@ const fs = require('fs');
 const generatePage = require('index.html'); //what file to assign here?
 
 const questions = [
-    class employee {
-        constuctor(name, id, email, role) {
-            this.name = name;
-            this.id = id;
-            this.email = email;
-            this.role = role;
-        }
-    },
-    class manager {
-        constuctor(name, id, email, officeNumber, role) {
-            this.name = name;
-            this.id = id;
-            this.email = email;
-            this.officeNumber = officeNumber;
-            this.role = role;
-        }
-    },
-    class engineer {
-        constuctor(name, id, email, github, role) {
-            this.name = name;
-            this.id = id;
-            this.email = email;
-            this.github = github;
-            this.role = role;
-        }
-    },
-    class intern {
-        constuctor(name, id, email, school, role) {
-            this.name = name;
-            this.id = id;
-            this.email = email;
-            this.school = school;
-            this.role = role;
-        }
-    }
+   
+    
+   
 ];
 
 function writeToFile(fileName, data) {
