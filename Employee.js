@@ -5,10 +5,10 @@ class Employee {
         this.email = email;
         this.role = role;
     }
-    getName() {
-        let getName = 
-        return 
-    }
+    // getName() {
+    //     let getName = 
+    //     return 
+    // }
     getId() {
 
     }
