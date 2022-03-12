@@ -4,7 +4,7 @@ function generateData(empArray){
         
     str+=`
     <ul id="data">
-    <h2 id="name">Name:</h2>
+    <h2 id="name">Name: ${empArray[index].getName()} </h2>
     <li id="list">Title:</li>
     <li id="list">ID:</li>
     <li id="list">Email:<a id="list-item" href=" "

@@ -1,8 +1,9 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
-const Employees = require('./Employees');
+const { Manager, Engineer, Intern} = require('./Employees');
 const generatePage = require('./generatePage.js');
 const employees = [];
+
 const questions = [
   {
     type: 'input',
@@ -217,8 +218,8 @@ function init() {
   inquirer
     .prompt(questions)
     .then((answers) => {
-      employees.push(answers)
-      console.log('answers', answers)
+      employees.push(new Manager(answers.managerName, answers.employeeID, answers.emailAddress, "manager", answers.officeNumber))
+      console.log('answers', employees)
       askEmployeeType();
 
     })

@@ -1,25 +1,4 @@
-class Employee {
-    constuctor(name, id, email, role) {
-        this.name = name;
-        this.id = id;
-        this.email = email;
-        this.role = role;
-    }
-    // getName() {
-    //     let getName = 
-    //     return 
-    // }
-    getId() {
-return this.id
-    }
-    getEmail() {
-return this.email
-    }
-    getRole() {
-
-    }
-}
-
+const Employee = require("./lib/Employee")
 class Manager extends Employee {
     constructor(name, id, email, role, officeNumber) {
         super(name, id, email, role);
@@ -39,4 +18,4 @@ class Intern extends Employee {
     }
 }
 
-module.exports = {Employee, Manager, Engineer, Intern} 
+module.exports = {Manager, Engineer, Intern} 
