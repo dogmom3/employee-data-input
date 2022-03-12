@@ -1,4 +1,6 @@
-
+function generatePage(answers) {
+    console.log(answers);
+    return `
     <!DOCTYPE html>
     <html lang="en">
     
@@ -45,4 +47,7 @@
     </body>
     
     </html>
-    ;
+    ;`
+}
+
+module.exports = generatePage;
