@@ -10,10 +10,10 @@ class Employee {
     //     return 
     // }
     getId() {
-
+return this.id
     }
     getEmail() {
-
+return this.email
     }
     getRole() {
 
@@ -22,28 +22,21 @@ class Employee {
 
 class Manager extends Employee {
     constructor(name, id, email, role, officeNumber) {
-        super(name);
-        super(id);
-        super(email);
-        super(role);
+        super(name, id, email, role);
         this.officeNumber = officeNumber;
     }
 }
 class Engineer extends Employee {
     constructor(name, id, email, role, githubUserName) {
-        super(name);
-        super(id);
-        super(email);
-        super(role);
+        super(name, id, email, role);
         this.githubUserName = githubUserName;
     }
 }
 class Intern extends Employee {
     constructor(name, id, email, role, school) {
-        super(name);
-        super(id);
-        super(email);
-        super(role);
+        super(name, id, email, role);
         this.school = school;
     }
 }
+
+module.exports = {Employee, Manager, Engineer, Intern} 
