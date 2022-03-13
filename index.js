@@ -4,7 +4,7 @@ const { Manager, Engineer, Intern } = require('./lib/Mangr-Engr-Intn');
 const generatePage = require('./src/generatePage.js');
 const employees = [];
 
-const questions = [
+const managerQuestions = [
   {
     type: 'input',
     name: 'managerName',
@@ -175,8 +175,8 @@ const employeeType = [
   }
 ];
 
-function writeToFile(fileName, data) {
-  const pageHTML = generatePage(data);
+function writeToFile(fileName, answers) {
+  const pageHTML = generatePage(answers);
   fs.writeFile(fileName, pageHTML, err => {
     if (err) throw err;
     console.log(err);
@@ -188,17 +188,17 @@ function askEmployeeType() {
     .then((answers) => {
       if (answers.employeeSelect.includes('engineer')) {
         inquirer.prompt(engineerQuestions)
-          .then((engineerAnswers) => {
+          .then((answers) => {
             employees.push(new Engineer(answers.engineerName, "Engineer", answers.employeeID, answers.emailAddress, answers.gitHubUserName))
-            console.log('engineerAnswers', engineerAnswers)
+            console.log('answers', employees)
             askEmployeeType();
           })
       }
       if (answers.employeeSelect.includes('intern')) {
         inquirer.prompt(internQuestions)
-          .then((internAnswers) => {
+          .then((answers) => {
             employees.push(new Intern(answers.internName, "Intern", answers.employeeID, answers.emailAddress, answers.school))
-            console.log('internAnswers', internAnswers)
+            console.log('answers', employees)
             askEmployeeType();
           })
       }
@@ -210,7 +210,7 @@ function askEmployeeType() {
 };
 function init() {
   inquirer
-    .prompt(questions)
+    .prompt(managerQuestions)
     .then((answers) => {
       employees.push(new Manager(answers.managerName, "Manager", answers.employeeID, answers.emailAddress, answers.officeNumber))
       console.log('answers', employees)
