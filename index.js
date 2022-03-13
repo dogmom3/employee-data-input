@@ -1,7 +1,7 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
-const { Manager, Engineer, Intern} = require('./Employees');
-const generatePage = require('./generatePage.js');
+const { Manager, Engineer, Intern } = require('./lib/Mangr-Engr-Intn');
+const generatePage = require('./src/generatePage.js');
 const employees = [];
 
 const questions = [
@@ -57,7 +57,7 @@ const questions = [
       }
     }
   },
-]
+];
 const engineerQuestions = [
   {
     type: 'input',
@@ -100,7 +100,7 @@ const engineerQuestions = [
   },
   {
     type: 'input',
-    name: 'githubUserName',
+    name: 'gitHubUserName',
     message: 'What is their GitHub user name?',
     validate: userInput => {
       if (userInput) {
@@ -111,7 +111,7 @@ const engineerQuestions = [
       }
     }
   },
-]
+];
 const internQuestions = [
   {
     type: 'input',
@@ -166,17 +166,14 @@ const internQuestions = [
     }
   },
 ];
-
 const employeeType = [
   {
     type: 'list',
     name: 'employeeSelect',
     message: 'Would you like to add an engineer or an intern or finish building your team?',
     choices: ["engineer", "intern", "finish building team"],
-
   }
-]
-
+];
 
 function writeToFile(fileName, data) {
   const pageHTML = generatePage(data);
@@ -185,47 +182,43 @@ function writeToFile(fileName, data) {
     console.log(err);
     console.log('Page complete! Check out index.html to see the output!');
   });
-}
+};
 function askEmployeeType() {
   inquirer.prompt(employeeType)
     .then((answers) => {
       if (answers.employeeSelect.includes('engineer')) {
         inquirer.prompt(engineerQuestions)
           .then((engineerAnswers) => {
-            employees.push(engineerAnswers)
+            employees.push(new Engineer(answers.engineerName, "Engineer", answers.employeeID, answers.emailAddress, answers.gitHubUserName))
             console.log('engineerAnswers', engineerAnswers)
             askEmployeeType();
           })
-
       }
-
       if (answers.employeeSelect.includes('intern')) {
         inquirer.prompt(internQuestions)
           .then((internAnswers) => {
-            employees.push(internAnswers)
+            employees.push(new Intern(answers.internName, "Intern", answers.employeeID, answers.emailAddress, answers.school))
             console.log('internAnswers', internAnswers)
             askEmployeeType();
           })
       }
-
       if (answers.employeeSelect.includes('finish building team')) {
         writeToFile('index.html', employees)
-      console.log('finish building team', answers)
+        console.log('finish building team', answers)
       }
     })
-}
+};
 function init() {
   inquirer
     .prompt(questions)
     .then((answers) => {
-      employees.push(new Manager(answers.managerName, answers.employeeID, answers.emailAddress, "manager", answers.officeNumber))
+      employees.push(new Manager(answers.managerName, "Manager", answers.employeeID, answers.emailAddress, answers.officeNumber))
       console.log('answers', employees)
       askEmployeeType();
-
     })
     .catch((error) => {
       console.log(error)
-    });
-}
+    })
+};
 
 init();

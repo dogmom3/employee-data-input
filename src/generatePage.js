@@ -1,25 +1,26 @@
 function generateData(empArray){
-    let str = ''
+    let empString = ''
     for (let index = 0; index < empArray.length; index++) {
         
-    str+=`
+    empString+=`
     <ul id="data">
-    <h2 id="name">Name: ${empArray[index].getName()} </h2>
-    <li id="list">Title:</li>
-    <li id="list">ID:</li>
-    <li id="list">Email:<a id="list-item" href=" "
-            target="_blank"></a> </li>
-    <li id="list">Office Number:</li>
+    <h2 id="name">Name: ${empArray[index].getName} </h2>
+    <li id="list">Role:</li>
+    <li id="list">ID: ${empArray[index].getId} </li>
+    <li id="list">Email: ${empArray[index].getEmail}
+        // <a id="list-item" href=" "target="_blank"></a> 
+        </li>
+    <li id="list">Office Number: ${empArray[index].getOfficeNumber}</li>
 </ul>`
+
     }
-    return str
-}
+    return empString
+};
 function generatePage(answers) {
     console.log(answers);
     return `
     <!DOCTYPE html>
     <html lang="en">
-    
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +28,6 @@ function generatePage(answers) {
         <link rel="stylesheet" href="assets/css/style.css">
         <title>Document</title>
     </head>
-    
     <body>
         <header>
             <h1>MY TEAM</h1>
@@ -35,12 +35,9 @@ function generatePage(answers) {
         <div id="container">
             <div id="employee-data">
                ${generateData(answers)}
-    
-               
             </div>
         </div>
     </body>
-    
     </html>
     ;`
 }
