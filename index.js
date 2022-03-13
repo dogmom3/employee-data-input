@@ -1,6 +1,8 @@
 var inquirer = require('inquirer');
 const fs = require('fs');
-const { Manager, Engineer, Intern } = require('./lib/Mangr-Engr-Intn');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer')
+const Intern = require('./lib/Intern')
 const generatePage = require('./src/generatePage.js');
 const employees = [];
 
