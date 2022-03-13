@@ -1,5 +1,8 @@
-const sum = require('./sum');
+const employee = require('../lib/Employee');
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe('Employee class', () => {
+  it('checks if getID returns id', () => {
+    const employee = new Employee('')
+    expect(employee.getID()).toBe(Employee);
+  });
 });
