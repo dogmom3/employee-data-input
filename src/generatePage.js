@@ -34,6 +34,7 @@ function generatePage(answers) {
         </header>
         <div id="container">
             <div id="employee-data">
+        
                ${generateData(answers)}
                
             </div>

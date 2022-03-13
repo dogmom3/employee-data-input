@@ -1,3 +1,4 @@
+const { TestWatcher } = require('jest');
 const Employee = require('../lib/Employee');
 
 test('check employee role', () => {
@@ -7,7 +8,7 @@ test('check employee role', () => {
 
 test('Employee class', () => {
     const employee = new Employee('Blair', '1234', 'email@gmail.com')
-    expect(employee.name).toBe('name')
-      expect(employee.id).toBe('id')
-      expect(employee.email).toBe('email')
+    expect(employee.name).toBe('Blair')
+      expect(employee.id).toBe('1234')
+      expect(employee.email).toBe('email@gmail.com')
 });

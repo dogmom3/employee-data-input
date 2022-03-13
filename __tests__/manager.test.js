@@ -1,14 +1,14 @@
 const { TestWatcher } = require('jest');
 const Manager = require('../lib/Manager');
 
-// describe('Manager class', () => {
-//   it('checks if getRole returns role', () => {
-//     const employee = new Manager(answers.managerName, "Manager", answers.employeeID, answers.emailAddress, answers.officeNumber)
-//     expect(answers.managerName).toBe(userInput);
-//   });
-// });
+test('check manager role', () => {
+  const manager = new Manager('Blair', '1234', 'email@gmail.com')
+  expect(manager.getRole()).toBe('Manager')
+})
 
-// test('', ( => {
-//   expect( ( )).toBe( );
-// }));
-
+test('Manager class', () => {
+    const manager = new Manager('Blair', '1234', 'email@gmail.com')
+    expect(manager.name).toBe('Blair')
+      expect(manager.id).toBe('1234')
+      expect(manager.email).toBe('email@gmail.com')
+});

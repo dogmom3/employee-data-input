@@ -1,8 +1,15 @@
+const { TestWatcher } = require('jest');
 const Intern = require('../lib/Intern');
 
-describe('Intern class', () => {
-  it('checks if getRole returns role', () => {
-    const employee = new Intern()
-    expect(employee.getRole()).toBe(Intern);
-  });
+test('check intern role', () => {
+  const intern = new Intern('Blair', '1234', 'email@gmail.com')
+  expect(intern.getRole()).toBe('Intern')
+})
+
+test('Intern class', () => {
+    const intern = new Intern('Blair', '1234', 'email@gmail.com', 'UNC')
+    expect(intern.name).toBe('Blair')
+      expect(intern.id).toBe('1234')
+      expect(intern.email).toBe('email@gmail.com')
+      expect(intern.school).toBe('UNC')
 });

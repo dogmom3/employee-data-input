@@ -185,6 +185,7 @@ function writeToFile(fileName, answers) {
     console.log('Page complete! Check out index.html to see the output!');
   });
 };
+
 function askEmployeeType() {
   inquirer.prompt(employeeType)
     .then((answers) => {
