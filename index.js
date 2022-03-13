@@ -102,7 +102,7 @@ const engineerQuestions = [
   },
   {
     type: 'input',
-    name: 'gitHubUserName',
+    name: 'gitHub',
     message: 'What is their GitHub user name?',
     validate: userInput => {
       if (userInput) {
@@ -191,7 +191,7 @@ function askEmployeeType() {
       if (answers.employeeSelect.includes('engineer')) {
         inquirer.prompt(engineerQuestions)
           .then((answers) => {
-            employees.push(new Engineer(answers.engineerName, "Engineer", answers.employeeID, answers.emailAddress, answers.gitHubUserName))
+            employees.push(new Engineer(answers.engineerName, "Engineer", answers.employeeID, answers.emailAddress, answers.gitHub))
             console.log('answers', employees)
             askEmployeeType();
           })
