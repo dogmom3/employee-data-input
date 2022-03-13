@@ -1,8 +1,8 @@
-const employee = require('../lib/Employee');
+const Employee = require('../lib/Employee');
 
 describe('Employee class', () => {
-  it('checks if getID returns id', () => {
-    const employee = new Employee('')
-    expect(employee.getID()).toBe(Employee);
+  it('checks if getRole returns role', () => {
+    const employee = new Employee()
+    expect(employee.getRole()).toBe(Employee);
   });
 });
