@@ -192,7 +192,7 @@ function askEmployeeType() {
       if (answers.employeeSelect.includes('engineer')) {
         inquirer.prompt(engineerQuestions)
           .then((answers) => {
-            employees.push(new Engineer(answers.engineerName, "Engineer", answers.employeeID, answers.emailAddress, answers.gitHub))
+            employees.push(new Engineer(answers.engineerName, answers.employeeID, answers.emailAddress, answers.gitHub))
             console.log('answers', employees)
             askEmployeeType();
           })
@@ -200,7 +200,7 @@ function askEmployeeType() {
       if (answers.employeeSelect.includes('intern')) {
         inquirer.prompt(internQuestions)
           .then((answers) => {
-            employees.push(new Intern(answers.internName, "Intern", answers.employeeID, answers.emailAddress, answers.school))
+            employees.push(new Intern(answers.internName, answers.employeeID, answers.emailAddress, answers.school))
             console.log('answers', employees)
             askEmployeeType();
           })
@@ -215,9 +215,10 @@ function init() {
   inquirer
     .prompt(managerQuestions)
     .then((answers) => {
-      employees.push(new Manager(answers.managerName, "Manager", answers.employeeID, answers.emailAddress, answers.officeNumber))
+      employees.push(new Manager(answers.managerName, answers.employeeID, answers.emailAddress, answers.officeNumber))
       console.log('answers', employees)
       askEmployeeType();
+
     })
     .catch((error) => {
       console.log(error)

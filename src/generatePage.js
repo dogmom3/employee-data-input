@@ -1,21 +1,54 @@
-function generateData(empArray){
-    let empString = ''
-    for (let index = 0; index < empArray.length; index++) {
-        
-    empString+=`
-    <ul id="data">
-    <h2 id="name">Name: ${empArray[index].getName} </h2>
-    <li id="list">Role:</li>
-    <li id="list">ID: ${empArray[index].getId} </li>
-    <li id="list">Email: ${empArray[index].getEmail}
-        // <a id="list-item" href=" "target="_blank"></a> 
-        </li>
-    <li id="list">Office Number: ${empArray[index].getOfficeNumber}</li>
-</ul>`
+const Employee = require("../lib/Employee")
+const Manager = require("../lib/Manager")
+const Engineer = require("../lib/Engineer")
+const Intern = require("../lib/Intern")
+const employees = [];
 
+function generateManagerData(employees) {
+    let managerData = ''
+    for (let index = 0; index < employees.length; index++) {
+        managerData += `
+    <ul id="data">
+    <h2 id="name">Name: ${employees[index].getName()}</h2>
+    <li id="list">Role: ${employees[index].getRole()}</li>
+    <li id="list">ID: ${employees[index].getId()}</li>
+    <li id="list">Email: <a href="mailto: " target="_blank"> ${employees[index].getEmail()}</a></li>
+    <li id="list">Office Number: ${employees[index].getOfficeNumber()}</li>
+</ul>`
     }
-    return empString
+    return managerData
 };
+
+function generateEngineerData(employees) {
+    let engineerData = ''
+    for (let index = 1; index < employees.length; index++) {
+        engineerData += `
+        <ul id="data">
+        <h2 id="name">Name: ${employees[index].getName()} </h2>
+        <li id="list">Role: ${employees[index].getRole()}</li>
+        <li id="list">ID: ${employees[index].getId()} </li>
+        <li id="list">Email: <a href="mailto: " target="_blank"> ${employees[index].getEmail()}</a></li>
+        <li id="list">GitHub: ${employees[index].getGitHub()}</li>
+    </ul>`
+    }
+    return engineerData
+};
+
+function generateInternData(employees) {
+    let internData = ''
+    for (let index = 1; index < employees.length; index++) {
+    internData += `
+    <ul id="data">
+        <h2 id="name">Name: ${employees[index].getName()}</h2>
+        <li id="list">Role: ${employees[index].getRole()}</li>
+        <li id="list">ID: ${employees.getId()}</li>
+        <li id="list">Email: <a href="mailto: " target="_blank"> ${employees[index].getEmail()}</a></li>
+        <li id="list">School: ${employees[index].getSchool()}</li>
+    </ul>`
+}
+return internData
+    };
+
 function generatePage(answers) {
     console.log(answers);
     return `
@@ -34,14 +67,14 @@ function generatePage(answers) {
         </header>
         <div id="container">
             <div id="employee-data">
-        
-               ${generateData(answers)}
-               
+                <div> ${generateManagerData(answers)} </div>
+                <div> ${generateEngineerData(answers)} </div>
+                <div> ${generateInternData(answers)} </div>
             </div>
         </div>
     </body>
     </html>
     ;`
-}
+};
 
 module.exports = generatePage;
