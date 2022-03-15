@@ -1,6 +1,7 @@
 body {
     background-image: repeating-linear-gradient(15deg,lightcyan,lime 70px,aqua 140px);
     background-attachment: fixed;
+    
 }
 
 header {

@@ -15,7 +15,7 @@ function generateManagerData(employees) {
     </p>
     <p class="subtitle">${managers[index].getRole()}
     </p>
-    <p class="subtitle"ID: ${managers[index].getId()}
+    <p class="subtitle">ID: ${managers[index].getId()}
     </p>
     <p class="subtitle">Office Number: 
     ${managers[index].getOfficeNumber()}
