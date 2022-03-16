@@ -11,15 +11,12 @@ function generateManagerData(employees) {
     managerData += `
 <div class="card">
   <div class="card-content">
-  <p class="title has-text-link-dark has-background-primary">${managers[index].getName()}
-    </p>
-    <p class="subtitle">${managers[index].getRole()}
-    </p>
-    <p class="subtitle">ID: ${managers[index].getId()}
-    </p>
-    <p class="subtitle">Office Number: 
-    ${managers[index].getOfficeNumber()}
-    </p>
+    <div class="title has-text-link-dark has-background-primary">
+      <p>${managers[index].getName()}</p>
+      <p>${managers[index].getRole()}</p>
+    </div>
+    <p class="subtitle">ID: ${managers[index].getId()}</p>
+    <p class="subtitle">Office Number: ${managers[index].getOfficeNumber()}</p>
   </div>
   <footer class="card-footer">
     <p class="card-footer-item">
@@ -41,10 +38,10 @@ function generateEngineerData(employees) {
     engineerData += `
           <div class="card">
   <div class="card-content">
-  <p class="title has-text-link-dark has-background-primary">${engineers[index].getName()}
-    </p>
-    <p class="subtitle">${engineers[index].getRole()}
-    </p>
+    <div class="title has-text-link-dark has-background-primary">
+      <p>${engineers[index].getName()}</p>
+      <p>${engineers[index].getRole()}</p>
+    </div>  
     <p class="subtitle">ID: ${engineers[index].getId()}
     </p>
     <p class="subtitle">
@@ -73,10 +70,10 @@ function generateInternData(employees) {
     internData += `
     <div class="card">
   <div class="card-content">
-  <p class="title has-text-link-dark has-background-primary">${interns[index].getName()}
-    </p>
-    <p class="subtitle">${interns[index].getRole()}
-    </p>
+    <div class="title has-text-link-dark has-background-primary">
+      <p>${interns[index].getName()}</p>
+      <p>${interns[index].getRole()}</p>
+    </div>
     <p class="subtitle">ID: ${interns[index].getId()}
     </p>
     <p class="subtitle">School: ${interns[index].getSchool()}
@@ -111,7 +108,7 @@ function generatePage(answers) {
     <body "is-family-primary">
     <header class="hero is-primary">
         <div class="hero-body">
-          <p class="title has-text-centered">
+          <p class="hero is-size-2 has-text-centered">
             My Team
           </p>
         </div>
