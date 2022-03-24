@@ -1,9 +1,11 @@
+//list of variables
 const Employee = require("../lib/Employee")
 const Manager = require("../lib/Manager")
 const Engineer = require("../lib/Engineer")
 const Intern = require("../lib/Intern")
 const employees = [];
 
+//function to generate manager data based on user input
 function generateManagerData(employees) {
   let managers = employees.filter((employee) => employee.getRole() === "Manager")
   let managerData = ''
@@ -31,6 +33,7 @@ function generateManagerData(employees) {
   return managerData
 };
 
+//function to generate engineer data based on user input
 function generateEngineerData(employees) {
   let engineers = employees.filter((employee) => employee.getRole() === "Engineer")
   let engineerData = ''
@@ -63,6 +66,7 @@ function generateEngineerData(employees) {
   return engineerData
 };
 
+//function to generate intern data based on user input
 function generateInternData(employees) {
   let interns = employees.filter((employee) => employee.getRole() === "Intern")
   let internData = ''
@@ -92,6 +96,7 @@ function generateInternData(employees) {
   return internData
 };
 
+//function to create the html page
 function generatePage(answers) {
   console.log(answers);
   return `
@@ -125,4 +130,5 @@ function generatePage(answers) {
     ;`
 };
 
+//including the generatePage function
 module.exports = generatePage;

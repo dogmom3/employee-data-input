@@ -1,3 +1,4 @@
+//list of variables
 var inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
@@ -6,6 +7,7 @@ const Intern = require('./lib/Intern')
 const generatePage = require('./src/generatePage.js');
 const employees = [];
 
+//set of questions for when manager is selected
 const managerQuestions = [
   {
     type: 'input',
@@ -60,6 +62,8 @@ const managerQuestions = [
     }
   },
 ];
+
+//set of questions for when engineer is selected
 const engineerQuestions = [
   {
     type: 'input',
@@ -114,6 +118,8 @@ const engineerQuestions = [
     }
   },
 ];
+
+//set of questions for when intern is selected
 const internQuestions = [
   {
     type: 'input',
@@ -168,6 +174,8 @@ const internQuestions = [
     }
   },
 ];
+
+//question to ask what type of employee you want to add
 const employeeType = [
   {
     type: 'list',
@@ -177,6 +185,7 @@ const employeeType = [
   }
 ];
 
+//function to write the data to an html file
 function writeToFile(fileName, answers) {
   const pageHTML = generatePage(answers);
   fs.writeFile(fileName, pageHTML, err => {
@@ -186,6 +195,7 @@ function writeToFile(fileName, answers) {
   });
 };
 
+//function to prompt appropriate questions/data based on user input
 function askEmployeeType() {
   inquirer.prompt(employeeType)
     .then((answers) => {
@@ -211,6 +221,8 @@ function askEmployeeType() {
       }
     })
 };
+
+//function to begin series of questions to build team
 function init() {
   inquirer
     .prompt(managerQuestions)
@@ -225,4 +237,5 @@ function init() {
     })
 };
 
+//function call
 init();
